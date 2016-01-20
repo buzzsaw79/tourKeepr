@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="Golfer" representedClassName="Golfer" syncable="YES">
+        <attribute name="clubHandicap" attributeType="Double" maxValueString="28" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentTourHandicap" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="scoreDay1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="scoreDay2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="scoreDay3" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="scoreDay4" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="scoreDay5" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="surname" attributeType="String" syncable="YES"/>
+        <attribute name="winnings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="playsIn" toMany="YES" maxCount="5" deletionRule="Nullify" destinationEntity="Round" inverseName="golfer" inverseEntity="Round" syncable="YES"/>
+    </entity>
+    <entity name="Round" representedClassName=".Round" syncable="YES">
+        <attribute name="averageScore" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="course" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" minDateTimeInterval="484574100" maxDateTimeInterval="485006160" syncable="YES"/>
+        <attribute name="dayNumber" attributeType="Integer 16" minValueString="1" maxValueString="5" syncable="YES"/>
+        <attribute name="totalScores" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="golfer" toMany="YES" maxCount="16" deletionRule="Nullify" destinationEntity="Golfer" inverseName="playsIn" inverseEntity="Golfer" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Golfer" positionX="-272" positionY="-168" width="128" height="225"/>
+        <element name="Round" positionX="-18" positionY="72" width="128" height="135"/>
+    </elements>
+</model>
