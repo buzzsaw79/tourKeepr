@@ -41,6 +41,22 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func playerAClicked(sender: UIButton) {
+        
+        switch (sender.tag) {
+        case 1:
+            sender.setTitle("Keith Bamford", forState: .Normal)
+        case 2:
+            sender.setTitle("Alan Bromley", forState: .Normal)
+        case 3:
+            sender.setTitle("Bernard Bull", forState: .Normal)
+        case 4:
+            sender.setTitle("Mick Clarke", forState: .Normal)
+            
+        default:
+            break;
+        }
+        
+        //        sender.setTitle("Keith Bamford", forState: .Normal)
         print("Button Clicked")
     }
 

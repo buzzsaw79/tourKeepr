@@ -6,6 +6,7 @@
         <attribute name="dayNumberIdentifier" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="handicapAdjustment" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="teeTime" attributeType="Date" syncable="YES"/>
+        <attribute name="teeTimeString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>
@@ -30,7 +31,7 @@
     <fetchRequest name="FetchRequest1" entity="DayRound"/>
     <fetchRequest name="firstDay" entity="Golfer" predicateString="winnings &gt; 0"/>
     <elements>
-        <element name="DayRound" positionX="261" positionY="189" width="128" height="163"/>
+        <element name="DayRound" positionX="261" positionY="189" width="128" height="178"/>
         <element name="Golfer" positionX="79" positionY="189" width="128" height="223"/>
     </elements>
 </model>

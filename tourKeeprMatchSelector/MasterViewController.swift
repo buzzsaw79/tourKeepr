@@ -19,13 +19,44 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
+//        let tableBackgroundColour = AppDelegate.globalColours().oddCellColour
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewRound:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            
         }
+        
+        
+        // Configure Tee Times  and Dates as NSDate(s)
+        let teeTimeDay1 = dateMaker(2016, month: 05, day: 10, hour: 13, minute: 04)
+        let teeTimeDay2 = dateMaker(2016, month: 05, day: 11, hour: 11, minute: 5)
+        let teeTimeDay3 = dateMaker(2016, month: 05, day: 12, hour: 8, minute: 42)
+        let teeTimeDay4 = dateMaker(2016, month: 05, day: 13, hour: 12, minute: 36)
+        let teeTimeDay5 = dateMaker(2016, month: 05, day: 14, hour: 10, minute: 20)
+
+
+
+
+        
+        
+        print(teeTimeDay1.dateString!)
+        print(teeTimeDay2.dateString!)
+        print(teeTimeDay3.dateString!)
+        print(teeTimeDay4.dateString!)
+        print(teeTimeDay5.dateString!)
+        
+        
+        // Set Up DayRounds
+//        insertNewRound(1, course: "Salgados Golf Club", teeTime: teeTimeDay1)
+//        insertNewRound(2, course: "Ocean Course (Vale Do Lobo)", teeTime: teeTimeDay2)
+//        insertNewRound(3, course: "Pinhal Golf Course (Oceanico)", teeTime: teeTimeDay3)
+//        insertNewRound(4, course: "Millennium Golf Course (Oceanico)", teeTime: teeTimeDay4)
+//        insertNewRound(5, course: "Royal Course (Vale Do Lobo)", teeTime: teeTimeDay5)
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -38,30 +69,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-        newManagedObject.setValue(NSDate(), forKey: "teeTime")
-        newManagedObject.setValue(1, forKey: "dayNumberIdentifier")
-        newManagedObject.setValue("Salgados", forKey: "course")
-             
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            print("Unresolved error \(error)")
-            abort()
-        }
-    }
+
     
-    func insertNewRound(dayNo: Int, course: String, teeTime: NSDate) {
+    func insertNewRound(dayNo: Int, course: String, teeTime: (NSDate?,String?)) {
         
         let newRound = NSEntityDescription.insertNewObjectForEntityForName("DayRound", inManagedObjectContext: self.fetchedResultsController.managedObjectContext)
         
@@ -69,7 +79,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Initialise properties
         newRound.setValue(NSNumber(integer: dayNo), forKey: "dayNumberIdentifier")
         newRound.setValue(course, forKey: "course")
-        newRound.setValue(teeTime, forKey: "teeTime")
+        newRound.setValue(teeTime.0!, forKey: "teeTime")
+        newRound.setValue(teeTime.1!, forKey: "teeTimeString")
         newRound.setValue(NSDate(), forKey: "timeStamp")
         
         do {
@@ -155,6 +166,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
         cell.textLabel!.text = object.valueForKey("course")!.description
+        cell.detailTextLabel!.text = object.valueForKey("teeTimeString")?.description ?? "Failed to get teeTimeString"
+        
     }
 
     // MARK: - Fetched results controller
@@ -173,7 +186,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         fetchRequest.fetchBatchSize = 16
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "dayNumberIdentifier", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "dayNumberIdentifier", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -237,6 +250,59 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          self.tableView.reloadData()
      }
      */
+    
+    //MARK: -
+    //MARK: Helper Functions etc
+    
+    private let userCalendar = NSCalendar.currentCalendar()
+    
+    func dateMaker(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> (date:NSDate?,dateString:String?) {
+        
+       var dayName = ""
+        let dateComps = NSDateComponents()
+        
+        dateComps.calendar = userCalendar
+        dateComps.year = year
+        dateComps.month = month
+        dateComps.day = day
+        dateComps.hour = hour
+        dateComps.minute = minute ?? 0
+        
+        let theDate = userCalendar.dateFromComponents(dateComps)
+        
+        let dayNo = userCalendar.components(.Weekday, fromDate: theDate!)
+        
+        
+        
+        switch (dayNo.weekday) {
+        case 1: dayName = "Sunday"
+        case 2: dayName = "Monday"
+        case 3: dayName = "Tuesday"
+        case 4: dayName = "Wednesday"
+        case 5: dayName = "Thursday"
+        case 6: dayName = "Friday"
+        case 7: dayName = "Saturday"
+        default: dayName = "Something went very wrong"
+        }
+        
+        var minString: String = ""
+        
+        // Add preceding 0 if minute is less than 10
+        if minute < 10 {
+            minString = "0\(minute)"
+        } else {
+            minString = String(minute)
+        }
+
+        
+        let monString = userCalendar.monthSymbols[month-1]
+        let dateString: String = "\(dayName) \(day)th \(monString) - \(hour):\(minString)pm"
+        
+        return (theDate,dateString)
+        
+        
+        
+    }
 
 }
 

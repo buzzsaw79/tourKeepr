@@ -13,6 +13,16 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    
+    struct globalColours {
+
+        let greenColour = UIColor(red: 0.4, green: 0.54, blue: 0.19, alpha: 1.0) // Another Green
+        let evenCellColour = UIColor(red: 0.918, green: 0.902, blue: 0.792, alpha: 1) // Oyster White
+        let oddCellColour = UIColor(red: 0.537, green: 0.675, blue: 0.463, alpha: 1.0) // Pale Green
+        let footerColour = UIColor(red: 0.424, green: 0.443, blue: 0.337, alpha: 1.0) // Reed Green
+        let nameLabelTextColour = UIColor(red: 0.8, green: 0.4, blue: 0.4, alpha: 1.0)
+        let headerColour = UIColor(red: 0.298, green: 0.569, blue: 0.255, alpha: 1.0)
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
