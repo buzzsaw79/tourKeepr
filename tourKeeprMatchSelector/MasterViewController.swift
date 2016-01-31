@@ -31,6 +31,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //        }
         
         
+        self.title = "Courses"
+        
+        
         // Configure Tee Times  and Dates as NSDate(s)
         let teeTimeDay1 = dateMaker(2016, month: 05, day: 10, hour: 13, minute: 04)
         let teeTimeDay2 = dateMaker(2016, month: 05, day: 11, hour: 11, minute: 5)
@@ -123,8 +126,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.managedObjectContext = self.managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-                navController.navigationItem.title = "Hello World"
+                
+                controller.dayRound = object
                 print(object.course)
+                
                 
             }
         }
