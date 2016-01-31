@@ -34,7 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
         let controller = masterNavigationController.topViewController as! MasterViewController
+        // Pass ManagedObjectContext to masterViewController
         controller.managedObjectContext = self.managedObjectContext
+        
+        
+        let detailNavigationController = splitViewController.viewControllers[1] as! UINavigationController
+        let detailViewController = detailNavigationController.viewControllers[0] as! DetailViewController
+        detailViewController.managedObjectContext = self.managedObjectContext
+        
         return true
     }
 

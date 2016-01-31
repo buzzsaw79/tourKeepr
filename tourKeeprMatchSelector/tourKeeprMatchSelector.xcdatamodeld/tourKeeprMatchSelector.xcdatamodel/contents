@@ -16,6 +16,7 @@
     </entity>
     <entity name="Golfer" representedClassName="Golfer" syncable="YES">
         <attribute name="clubHandicap" attributeType="Double" maxValueString="28" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="currentTourHandicap" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
@@ -28,10 +29,8 @@
         <attribute name="winnings" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="playsIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayRound" inverseName="golfers" inverseEntity="DayRound" syncable="YES"/>
     </entity>
-    <fetchRequest name="FetchRequest1" entity="DayRound"/>
-    <fetchRequest name="firstDay" entity="Golfer" predicateString="winnings &gt; 0"/>
     <elements>
         <element name="DayRound" positionX="261" positionY="189" width="128" height="178"/>
-        <element name="Golfer" positionX="79" positionY="189" width="128" height="223"/>
+        <element name="Golfer" positionX="79" positionY="189" width="128" height="240"/>
     </elements>
 </model>

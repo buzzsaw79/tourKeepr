@@ -51,13 +51,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30F60C1C1C4D6EEB00203FCC = {
+		3060FE661C52B03D005F7C1B /* Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				30F60C451C4F02C900203FCC /* Golfer+CoreDataProperties.swift */,
 				30F60C461C4F02C900203FCC /* Golfer.swift */,
 				30F60C471C4F02C900203FCC /* DayRound+CoreDataProperties.swift */,
 				30F60C481C4F02C900203FCC /* DayRound.swift */,
+			);
+			name = "Core Data Models";
+			sourceTree = "<group>";
+		};
+		30F60C1C1C4D6EEB00203FCC = {
+			isa = PBXGroup;
+			children = (
+				3060FE661C52B03D005F7C1B /* Core Data Models */,
 				30F60C271C4D6EEB00203FCC /* tourKeeprMatchSelector */,
 				30F60C261C4D6EEB00203FCC /* Products */,
 				30F60C411C4DC58A00203FCC /* royalGCLarge.jpg */,

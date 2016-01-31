@@ -13,5 +13,20 @@ import CoreData
 class DayRound: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
+    
+    
+//    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+//        super.init(entity: <#T##NSEntityDescription#>, insertIntoManagedObjectContext: <#T##NSManagedObjectContext?#>)
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
