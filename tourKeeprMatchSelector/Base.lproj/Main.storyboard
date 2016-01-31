@@ -36,10 +36,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="royalGCLarge.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HgK-bf-GNj">
                                 <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="usf-Lh-tf7">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="usf-Lh-tf7">
                                 <rect key="frame" x="20" y="72" width="984" height="688"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTy-kU-hRb" userLabel="Top Visual Effect View">
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTy-kU-hRb" userLabel="Top Visual Effect View">
                                         <rect key="frame" x="0.0" y="0.0" width="984" height="160"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cE0-H9-l5H">
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="160"/>
@@ -138,7 +138,7 @@
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37U-C1-NHq" userLabel="2nd Middle Visual Effect View">
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37U-C1-NHq" userLabel="2nd Middle Visual Effect View">
                                         <rect key="frame" x="0.0" y="176" width="984" height="160"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NWR-Ng-6DF">
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="160"/>
@@ -245,7 +245,7 @@
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxl-wB-TBV" userLabel="Middle Visual Effect View">
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lxl-wB-TBV" userLabel="Middle Visual Effect View">
                                         <rect key="frame" x="0.0" y="352" width="984" height="160"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LAp-2m-ffw">
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="160"/>
@@ -345,7 +345,7 @@
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="peW-lC-xfm" userLabel="Bottom Visual Effect View">
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peW-lC-xfm" userLabel="Bottom Visual Effect View">
                                         <rect key="frame" x="0.0" y="528" width="984" height="160"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h6a-FG-ZkQ">
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="160"/>

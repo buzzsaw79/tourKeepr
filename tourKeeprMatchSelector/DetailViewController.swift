@@ -254,6 +254,8 @@ class DetailViewController: UIViewController {
 
     @IBAction func playerAClicked(sender: UIButton) {
         
+        // Present Golfer ViewController Modally?
+        
         switch (sender.tag) {
         case 1:
             sender.setTitle("Keith Bamford", forState: .Normal)

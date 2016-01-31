@@ -18,17 +18,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
 //        let tableBackgroundColour = AppDelegate.globalColours().oddCellColour
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewRound:")
-        self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            
-        }
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewRound:")
+//        self.navigationItem.rightBarButtonItem = addButton
+//        if let split = self.splitViewController {
+//            let controllers = split.viewControllers
+//            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+//            
+//        }
         
         
         // Configure Tee Times  and Dates as NSDate(s)
@@ -116,11 +116,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DayRound
+                let navController = segue.destinationViewController as! UINavigationController
+                
+                let controller = navController.topViewController as! DetailViewController
+                controller.managedObjectContext = self.managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                navController.navigationItem.title = "Hello World"
+                print(object.course)
+                
             }
         }
     }
@@ -161,6 +166,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 abort()
             }
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return CGFloat(96)
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
