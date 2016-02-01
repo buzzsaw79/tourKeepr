@@ -12,7 +12,7 @@ import CoreData
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailViewTitleBar: UINavigationItem!
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+
     var managedObjectContext: NSManagedObjectContext?
     var dayRound: DayRound?
     
@@ -176,29 +176,22 @@ class DetailViewController: UIViewController {
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
-            self.configureView()
+           
         }
     }
 
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
-            }
-        }
-    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.detailViewTitleBar.title = "Holidays"
             }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
+        
         
         
         self.detailViewTitleBar.title = self.dayRound?.course
@@ -223,7 +216,8 @@ class DetailViewController: UIViewController {
 //            tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
 //        }
         
-        
+        let playerDictionary = NSDictionary(objects: players, forKeys: day1PlayingOrder)
+        print(playerDictionary)
         
         for (index, entrant) in self.entrants.enumerate() {
             
@@ -239,6 +233,7 @@ class DetailViewController: UIViewController {
         
     }
     
+    let day1PlayingOrder = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
     let day2PlayingOrder = ["A","F","O","L","E","J","C","P","I","N","G","D","M","B","K","H"]
     let day3PlayingOrder = ["A","J","G","H","E","N","K","L"]
 

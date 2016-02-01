@@ -97,6 +97,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     
+    
+    
+    
 //    @NSManaged var dayNumberIdentifier: NSNumber? // Required
 //    @NSManaged var course: String? // Required
 //    @NSManaged var teeTime: NSDate? // Required
