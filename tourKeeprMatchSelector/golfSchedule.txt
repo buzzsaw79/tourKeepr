@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<root>
+<Day number="1" value="Tuesday">
+	<Group number="1">
+		<Golfer>A</Golfer>
+		<Golfer>B</Golfer>
+		<Golfer>C</Golfer>
+		<Golfer>D</Golfer>
+	</Group>
+	<Group number="2">
+		<Golfer>E</Golfer>
+		<Golfer>F</Golfer>
+		<Golfer>G</Golfer>
+		<Golfer>H</Golfer>
+	</Group>
+	<Group number="3">
+		<Golfer>I</Golfer>
+		<Golfer>J</Golfer>
+		<Golfer>K</Golfer>
+		<Golfer>L</Golfer>
+	</Group>
+	<Group number="4">
+		<Golfer>M</Golfer>
+		<Golfer>N</Golfer>
+		<Golfer>O</Golfer>
+		<Golfer>P</Golfer>
+	</Group>
+</Day>
+	
+<Day number="2" value="Wedneday">
+	<Group number="1">
+		<Golfer>A</Golfer>
+		<Golfer>G</Golfer>
+		<Golfer>J</Golfer>
+		<Golfer>N</Golfer>
+	</Group>
+	<Group number="2">
+		<Golfer>D</Golfer>
+		<Golfer>H</Golfer>
+		<Golfer>I</Golfer>
+		<Golfer>O</Golfer>
+	</Group>
+	<Group number="3">
+		<Golfer>C</Golfer>
+		<Golfer>F</Golfer>
+		<Golfer>K</Golfer>
+		<Golfer>M</Golfer>
+	</Group>
+	<Group number="4">
+		<Golfer>B</Golfer>
+		<Golfer>E</Golfer>
+		<Golfer>L</Golfer>
+		<Golfer>P</Golfer>
+	</Group>
+</Day>
+
+<Day number="3" value="Thursday">
+	<Group number="1">
+		<Golfer>A</Golfer>
+		<Golfer>E</Golfer>
+		<Golfer>I</Golfer>
+		<Golfer>M</Golfer>
+	</Group>
+	<Group number="2">
+		<Golfer>D</Golfer>
+		<Golfer>F</Golfer>
+		<Golfer>J</Golfer>
+		<Golfer>P</Golfer>
+	</Group>
+	<Group number="3">
+		<Golfer>C</Golfer>
+		<Golfer>H</Golfer>
+		<Golfer>L</Golfer>
+		<Golfer>N</Golfer>
+	</Group>
+	<Group number="4">
+		<Golfer>B</Golfer>
+		<Golfer>G</Golfer>
+		<Golfer>K</Golfer>
+		<Golfer>O</Golfer>
+	</Group>
+</Day>
+<Day number="4" value="Saturday">
+	<Group number="1">
+		<Golfer>A</Golfer>
+		<Golfer>F</Golfer>
+		<Golfer>L</Golfer>
+		<Golfer>O</Golfer>
+	</Group>
+	<Group number="2">
+		<Golfer>C</Golfer>
+		<Golfer>G</Golfer>
+		<Golfer>I</Golfer>
+		<Golfer>P</Golfer>
+	</Group>
+	<Group number="3">
+		<Golfer>D</Golfer>
+		<Golfer>E</Golfer>
+		<Golfer>K</Golfer>
+		<Golfer>N</Golfer>
+	</Group>
+	<Group number="4">
+		<Golfer>B</Golfer>
+		<Golfer>H</Golfer>
+		<Golfer>J</Golfer>
+		<Golfer>M</Golfer>
+	</Group>
+</Day>
+
+</root>

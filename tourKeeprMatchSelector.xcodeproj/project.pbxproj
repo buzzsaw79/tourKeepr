@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3060FE681C62A3F7005F7C1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3060FE671C62A3F7005F7C1B /* CoreDataStack.swift */; };
+		3060FE6A1C62D990005F7C1B /* golfSchedule.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3060FE691C62D990005F7C1B /* golfSchedule.xml */; };
+		3060FE6C1C62DADB005F7C1B /* golfSchedule.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3060FE6B1C62DADB005F7C1B /* golfSchedule.txt */; };
 		30F60C291C4D6EEB00203FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C281C4D6EEB00203FCC /* AppDelegate.swift */; };
 		30F60C2C1C4D6EEB00203FCC /* tourKeeprMatchSelector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C2A1C4D6EEB00203FCC /* tourKeeprMatchSelector.xcdatamodeld */; };
 		30F60C2E1C4D6EEB00203FCC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C2D1C4D6EEB00203FCC /* MasterViewController.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3060FE671C62A3F7005F7C1B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3060FE691C62D990005F7C1B /* golfSchedule.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = golfSchedule.xml; sourceTree = "<group>"; };
+		3060FE6B1C62DADB005F7C1B /* golfSchedule.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = golfSchedule.txt; sourceTree = "<group>"; };
 		30F60C251C4D6EEB00203FCC /* tourKeeprMatchSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tourKeeprMatchSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F60C281C4D6EEB00203FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F60C2B1C4D6EEB00203FCC /* tourKeeprMatchSelector.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tourKeeprMatchSelector.xcdatamodel; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				30F60C451C4F02C900203FCC /* Golfer+CoreDataProperties.swift */,
+				3060FE671C62A3F7005F7C1B /* CoreDataStack.swift */,
 				30F60C461C4F02C900203FCC /* Golfer.swift */,
 				30F60C471C4F02C900203FCC /* DayRound+CoreDataProperties.swift */,
 				30F60C481C4F02C900203FCC /* DayRound.swift */,
@@ -89,6 +96,8 @@
 				30F60C311C4D6EEB00203FCC /* Main.storyboard */,
 				30F60C341C4D6EEB00203FCC /* Assets.xcassets */,
 				30F60C361C4D6EEB00203FCC /* LaunchScreen.storyboard */,
+				3060FE691C62D990005F7C1B /* golfSchedule.xml */,
+				3060FE6B1C62DADB005F7C1B /* golfSchedule.txt */,
 				30F60C391C4D6EEB00203FCC /* Info.plist */,
 				30F60C2A1C4D6EEB00203FCC /* tourKeeprMatchSelector.xcdatamodeld */,
 				30F60C431C4E4F1900203FCC /* tourKeepriPad.xcdatamodel */,
@@ -155,8 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F60C381C4D6EEB00203FCC /* LaunchScreen.storyboard in Resources */,
+				3060FE6C1C62DADB005F7C1B /* golfSchedule.txt in Resources */,
 				30F60C351C4D6EEB00203FCC /* Assets.xcassets in Resources */,
 				30F60C331C4D6EEB00203FCC /* Main.storyboard in Resources */,
+				3060FE6A1C62D990005F7C1B /* golfSchedule.xml in Resources */,
 				30F60C421C4DC58A00203FCC /* royalGCLarge.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +184,7 @@
 				30F60C2C1C4D6EEB00203FCC /* tourKeeprMatchSelector.xcdatamodeld in Sources */,
 				30F60C291C4D6EEB00203FCC /* AppDelegate.swift in Sources */,
 				30F60C4A1C4F02C900203FCC /* Golfer.swift in Sources */,
+				3060FE681C62A3F7005F7C1B /* CoreDataStack.swift in Sources */,
 				30F60C2E1C4D6EEB00203FCC /* MasterViewController.swift in Sources */,
 				30F60C301C4D6EEB00203FCC /* DetailViewController.swift in Sources */,
 				30F60C441C4E4F1900203FCC /* tourKeepriPad.xcdatamodel in Sources */,

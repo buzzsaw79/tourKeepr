@@ -35,22 +35,22 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         
         // Configure Tee Times  and Dates as NSDate(s)
-        let teeTimeDay1 = dateMaker(2016, month: 05, day: 10, hour: 13, minute: 04)
-        let teeTimeDay2 = dateMaker(2016, month: 05, day: 11, hour: 11, minute: 5)
-        let teeTimeDay3 = dateMaker(2016, month: 05, day: 12, hour: 8, minute: 42)
-        let teeTimeDay4 = dateMaker(2016, month: 05, day: 13, hour: 12, minute: 36)
-        let teeTimeDay5 = dateMaker(2016, month: 05, day: 14, hour: 10, minute: 20)
+//        let teeTimeDay1 = dateMaker(2016, month: 05, day: 10, hour: 13, minute: 04)
+//        let teeTimeDay2 = dateMaker(2016, month: 05, day: 11, hour: 11, minute: 5)
+//        let teeTimeDay3 = dateMaker(2016, month: 05, day: 12, hour: 8, minute: 42)
+//        let teeTimeDay4 = dateMaker(2016, month: 05, day: 13, hour: 12, minute: 36)
+//        let teeTimeDay5 = dateMaker(2016, month: 05, day: 14, hour: 10, minute: 20)
 
 
 
 
         
         
-        print(teeTimeDay1.dateString!)
-        print(teeTimeDay2.dateString!)
-        print(teeTimeDay3.dateString!)
-        print(teeTimeDay4.dateString!)
-        print(teeTimeDay5.dateString!)
+        //print(teeTimeDay1.dateString!)
+        //print(teeTimeDay2.dateString!)
+        //print(teeTimeDay3.dateString!)
+        //print(teeTimeDay4.dateString!)
+        //print(teeTimeDay5.dateString!)
         
         
         // Set Up DayRounds
@@ -91,7 +91,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            print("Unresolved error \(error)")
+            //print("Unresolved error \(error)")
             abort()
         }
     }
@@ -130,8 +130,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 
+                object.avgScore([12,23,21,45])
+                
                 controller.dayRound = object
-                print(object.course)
+                //print(object.course)
                 
                 
             }
@@ -170,7 +172,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //print("Unresolved error \(error), \(error.userInfo)")
+                ////print("Unresolved error \(error), \(error.userInfo)")
                 abort()
             }
         }
@@ -218,7 +220,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         } catch {
              // Replace this implementation with code to handle the error appropriately.
              // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-//             print("Unresolved error \(error), \(error.userInfo)")
+//             //print("Unresolved error \(error), \(error.userInfo)")
              abort()
         }
         

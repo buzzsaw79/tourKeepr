@@ -20,13 +20,23 @@ class DayRound: NSManagedObject {
 //    }
     
     
+    private var _golfers: NSSet {
+        get {
+            return self.golfers!
+        }
+    }
     
+    let dayOrder:[String] = []
     
-    
-    
-    
-    
-    
-    
+    func avgScore(scores:[Int]) -> Double {
+        var sum = 0
+        for score in scores {
+            sum = sum + score
+            
+        }
+        
+        return Double(sum)/Double(scores.count)
+        
+    }
 
 }

@@ -30,6 +30,8 @@ class Golfer: NSManagedObject {
         
         var golfer = Golfer(entity: golferEntity!, insertIntoManagedObjectContext: context)
         
+//        let newGolfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context)
+        
         let request = NSFetchRequest(entityName: "Golfer")
         // Check golfer
         request.predicate = NSPredicate(format: "identifier = %@", identifier)
@@ -53,23 +55,38 @@ class Golfer: NSManagedObject {
             print("Matches = NIL or Matches Count > 1") }
         else if (matches!.count == 1){
             golfer = (matches?.last)! as! Golfer
-            print("Matches Count = 1")
+            //print("Matches Count = 1")
         } else if (matches?.count == 0){
             golfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context) as! Golfer
             golfer.firstName = first
             golfer.surname = surname
             golfer.identifier = identifier
-            print("Matches Count = 0")
+            //print("Matches Count = 0")
+            
+            
+            // Attempt to save context
+//                   do {
+//                    print(context)
+//                        try context.save()
+//                   } catch {
+//                       // Replace this implementation with code to handle the error appropriately.
+//                       // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                       print("Unresolved error \(error)")
+//                       abort()
+//                    }
+            
+            
+            
         }
         
-        print("MATCH!!! \(matches)")
+        //print("MATCH!!! \(matches)")
         
 //       do {
 //            try context.save()
 //       } catch {
 //           // Replace this implementation with code to handle the error appropriately.
 //           // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//           print("Unresolved error \(error)")
+//           //print("Unresolved error \(error)")
 //           abort()
 //        }
         

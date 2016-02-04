@@ -16,6 +16,11 @@ class DetailViewController: UIViewController {
     var managedObjectContext: NSManagedObjectContext?
     var dayRound: DayRound?
     
+    
+    
+    let players = ["Keith Bamford", "Alan Bromley", "Bernard Bull", "Graham Clarke", "Mick Clarke", "Gary Davies", "Mario De Abreu", "Graham Hill", "Jeff Mabbitt", "Nigel Maqueline","Andrew Mogridge", "Liam Rees", "Jimmy Sweeney", "John Sweeney","David Wilson", "Craig Wilson"]
+    
+    
     var entrants:[Golfer] {
         // Create Golfers
         let keith: Golfer? = Golfer.golferWithFirstName("Keith", andSurname: "Bamford", playerIdentifier: "Player A", inManagedObjectContext: self.managedObjectContext!)
@@ -24,8 +29,8 @@ class DetailViewController: UIViewController {
         keith?.winnings = NSNumber(integer: 0)
         keith?.currentScore = 0
         
-        print("Ooooh I've been inserted")
-        print(keith)
+        //print("Ooooh I've been inserted")
+        //print(keith)
         
         
         
@@ -35,7 +40,7 @@ class DetailViewController: UIViewController {
         alan?.winnings = NSNumber(integer: 0)
         alan?.currentScore = 0
         
-        print("Alan inserted")
+        //print("Alan inserted")
         
         
         let bernie: Golfer? = Golfer.golferWithFirstName("Bernard", andSurname: "Bull", playerIdentifier: "Player C", inManagedObjectContext: self.managedObjectContext!)
@@ -44,7 +49,7 @@ class DetailViewController: UIViewController {
         bernie?.winnings = NSNumber(integer: 0)
         bernie?.currentScore = 0
         
-        print("Bernie inserted")
+        //print("Bernie inserted")
         
         
         let graham: Golfer? = Golfer.golferWithFirstName("Graham", andSurname: "Clarke", playerIdentifier: "Player D", inManagedObjectContext: self.managedObjectContext!)
@@ -53,7 +58,7 @@ class DetailViewController: UIViewController {
         graham?.winnings = NSNumber(integer: 0)
         graham?.currentScore = 0
         
-        print("Graham inserted")
+        //print("Graham inserted")
         
         
         let mick: Golfer? = Golfer.golferWithFirstName("Mick", andSurname: "Clarke", playerIdentifier: "Player E", inManagedObjectContext: self.managedObjectContext!)
@@ -62,7 +67,7 @@ class DetailViewController: UIViewController {
         mick?.winnings = NSNumber(integer: 0)
         mick?.currentScore = 0
         
-        print("Mick inserted")
+        //print("Mick inserted")
         
         
         let gary: Golfer? = Golfer.golferWithFirstName("Gary", andSurname: "Davies", playerIdentifier: "Player F", inManagedObjectContext: self.managedObjectContext!)
@@ -71,7 +76,7 @@ class DetailViewController: UIViewController {
         gary?.winnings = NSNumber(integer: 0)
         gary?.currentScore = 0
         
-        print("Gary inserted")
+        //print("Gary inserted")
         
         
         
@@ -81,7 +86,7 @@ class DetailViewController: UIViewController {
         mario?.winnings = NSNumber(integer: 0)
         mario?.currentScore = 0
         
-        print("Mario inserted")
+        //print("Mario inserted")
         
         
         let joe: Golfer? = Golfer.golferWithFirstName("Graham", andSurname: "Hill", playerIdentifier: "Player H", inManagedObjectContext: self.managedObjectContext!)
@@ -90,7 +95,7 @@ class DetailViewController: UIViewController {
         joe?.winnings = NSNumber(integer: 0)
         joe?.currentScore = 0
         
-        print("Joe inserted")
+        //print("Joe inserted")
         
         
         let jeff: Golfer? = Golfer.golferWithFirstName("Jeff", andSurname: "Mabbitt", playerIdentifier: "Player I", inManagedObjectContext: self.managedObjectContext!)
@@ -99,7 +104,7 @@ class DetailViewController: UIViewController {
         jeff?.winnings = NSNumber(integer: 0)
         jeff?.currentScore = 0
         
-        print("Jeff inserted")
+        //print("Jeff inserted")
         
         
         let nigel: Golfer? = Golfer.golferWithFirstName("Nigel", andSurname: "Maqueline", playerIdentifier: "Player J", inManagedObjectContext: self.managedObjectContext!)
@@ -108,7 +113,7 @@ class DetailViewController: UIViewController {
         nigel?.winnings = NSNumber(integer: 0)
         nigel?.currentScore = 0
         
-        print("Nigel inserted")
+        //print("Nigel inserted")
         
         
         let andrew: Golfer? = Golfer.golferWithFirstName("Andrew", andSurname: "Mogridge", playerIdentifier: "Player K", inManagedObjectContext: self.managedObjectContext!)
@@ -117,7 +122,7 @@ class DetailViewController: UIViewController {
         andrew?.winnings = NSNumber(integer: 0)
         andrew?.currentScore = 0
         
-        print("Mogsy inserted")
+        //print("Mogsy inserted")
         
         
         let liam: Golfer? = Golfer.golferWithFirstName("Liam", andSurname: "Rees", playerIdentifier: "Player L", inManagedObjectContext: self.managedObjectContext!)
@@ -126,7 +131,7 @@ class DetailViewController: UIViewController {
         liam?.winnings = NSNumber(integer: 0)
         liam?.currentScore = 0
         
-        print("Liam inserted")
+        //print("Liam inserted")
         
         
         let jimmy: Golfer? = Golfer.golferWithFirstName("Jimmy", andSurname: "Sweeney", playerIdentifier: "Player M", inManagedObjectContext: self.managedObjectContext!)
@@ -135,7 +140,7 @@ class DetailViewController: UIViewController {
         jimmy?.winnings = NSNumber(integer: 0)
         jimmy?.currentScore = 0
         
-        print("Jimmy inserted")
+        //print("Jimmy inserted")
         
         
         let john: Golfer? = Golfer.golferWithFirstName("John", andSurname: "Sweeney", playerIdentifier: "Player N", inManagedObjectContext: self.managedObjectContext!)
@@ -144,7 +149,7 @@ class DetailViewController: UIViewController {
         john?.winnings = NSNumber(integer: 0)
         john?.currentScore = 0
         
-        print("John inserted")
+        //print("John inserted")
         
         
         let david = Golfer.golferWithFirstName("David", andSurname: "Wilson", playerIdentifier: "Player O", inManagedObjectContext: self.managedObjectContext!)
@@ -153,7 +158,7 @@ class DetailViewController: UIViewController {
         david.winnings = NSNumber(integer: 0)
         david.currentScore = 0
         
-        print("Jock inserted")
+        //print("Jock inserted")
         
         
         let craig = Golfer.golferWithFirstName("Craig", andSurname: "Wilson", playerIdentifier: "Player P", inManagedObjectContext: self.managedObjectContext!)
@@ -162,7 +167,7 @@ class DetailViewController: UIViewController {
         craig.winnings = NSNumber(integer: 0)
         craig.currentScore = 0
         
-        print("Craig inserted")
+        //print("Craig inserted")
         
         
         let entrants = [keith!,alan!,bernie!,graham!,mick!,gary!,mario!,joe!,jeff!,nigel!,andrew!,liam!,jimmy!,john!,david,craig]
@@ -205,9 +210,9 @@ class DetailViewController: UIViewController {
 //        tagView16.setTitle("Keith Bamford", forState: .Normal)
 //        tagView16.setTitle("Brilliant", forState: .Highlighted)
         
-//        print("TAGVIEW \(tagView16)")
+//        //print("TAGVIEW \(tagView16)")
         
-        let players = ["Keith Bamford", "Alan Bromley", "Bernard Bull", "Graham Clarke", "Mick Clarke", "Gary Davies", "Mario De Abreu", "Graham Hill", "Jeff Mabbitt", "Nigel Maqueline","Andrew Mogridge", "Liam Rees", "Jimmy Sweeney", "John Sweeney","David Wilson", "Craig Wilson"]
+        
         
         
 //        for (var i = 1; i <= self.entrants.count; i++) {
@@ -215,9 +220,9 @@ class DetailViewController: UIViewController {
 //            tagView.setTitle(players[i-1], forState: .Normal)
 //            tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
 //        }
+        let dictArray = createDayOrders()
         
-        let playerDictionary = NSDictionary(objects: players, forKeys: day1PlayingOrder)
-        print(playerDictionary)
+        
         
         for (index, entrant) in self.entrants.enumerate() {
             
@@ -225,7 +230,7 @@ class DetailViewController: UIViewController {
             tagView.setTitle(entrant.name, forState: .Normal)
             tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
             
-//            print(entrant.name)
+//            //print(entrant.name)
             entrant.currentTourHandicap = entrant.clubHandicap
             
         }
@@ -233,14 +238,41 @@ class DetailViewController: UIViewController {
         
     }
     
-    let day1PlayingOrder = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
-    let day2PlayingOrder = ["A","F","O","L","E","J","C","P","I","N","G","D","M","B","K","H"]
-    let day3PlayingOrder = ["A","J","G","H","E","N","K","L"]
-
-
-
+    func createDayOrders() -> Array<NSDictionary>{
+        
+        let playingInts = [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                            [0,6,9,13,3,7,8,14,2,5,10,12,1,4,11,15],
+                            [0,4,8,12,3,5,9,15,2,7,11,13,1,6,10,14],
+                            [0,5,11,14,2,6,8,15,3,4,10,13,1,7,9,12],
+                            [0,7,10,15,2,4,9,14,3,6,11,12,1,5,8,13]]
+        
+        
+        for num in playingInts {
+            print(num)
+        }
+        
+        
+//        print(playingInts)
+        
+        
+        let day1PlayingOrder = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
+        let day2PlayingOrder = ["A","G","J","N","D","H","I","O","C","F","K","M","B","E","L","P"]
+        let day3PlayingOrder = ["A","E","I","M","D","F","J","P","C","H","L","N","B","G","K","O"]
+        let day4PlayingOrder = ["A","F","L","O","C","G","I","P","D","E","K","N","B","H","J","M"]
+        
+        
+        let day1Dict = NSDictionary(objects: players, forKeys: day1PlayingOrder) ;         print("Day1 = \(day1Dict)")
+        let day2Dict = NSDictionary(objects: players, forKeys: day2PlayingOrder)  ;    print("Day2 = \(day2Dict)")
+        let day3Dict = NSDictionary(objects: players, forKeys: day3PlayingOrder)   ; print("Day3 = \(day3Dict)")
+        let day4Dict = NSDictionary(objects: players, forKeys: day4PlayingOrder)    ; print("Day4 = \(day4Dict)")
+        
+        let dictionaryArray = Array(arrayLiteral: day1Dict,day2Dict,day3Dict,day4Dict)
+        
+        //print(dictionaryArray)
+        
+        return dictionaryArray
     
-    
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -253,20 +285,20 @@ class DetailViewController: UIViewController {
         
         switch (sender.tag) {
         case 1:
-            sender.setTitle("Keith Bamford", forState: .Normal)
+            sender.setTitle("Bollocks", forState: .Normal)
         case 2:
-            sender.setTitle("Alan Bromley", forState: .Normal)
+            sender.setTitle("Crap", forState: .Normal)
         case 3:
-            sender.setTitle("Bernard Bull", forState: .Normal)
+            sender.setTitle("Bullshit", forState: .Normal)
         case 4:
-            sender.setTitle("Mick Clarke", forState: .Normal)
+            sender.setTitle("Fiddle-dy", forState: .Normal)
             
         default:
             break;
         }
         
         //        sender.setTitle("Keith Bamford", forState: .Normal)
-        print("Button Clicked")
+        //print("Button Clicked")
     }
 
 }
