@@ -64,31 +64,10 @@ class Golfer: NSManagedObject {
             //print("Matches Count = 0")
             
             
-            // Attempt to save context
-//                   do {
-//                    print(context)
-//                        try context.save()
-//                   } catch {
-//                       // Replace this implementation with code to handle the error appropriately.
-//                       // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                       print("Unresolved error \(error)")
-//                       abort()
-//                    }
+
+            super
             
             
-            
-        }
-        
-        //print("MATCH!!! \(matches)")
-        
-//       do {
-//            try context.save()
-//       } catch {
-//           // Replace this implementation with code to handle the error appropriately.
-//           // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//           //print("Unresolved error \(error)")
-//           abort()
-//        }
         
         
         
