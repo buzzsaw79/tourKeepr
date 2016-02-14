@@ -11,8 +11,6 @@ import CoreData
 
 @objc(Golfer)
 class Golfer: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
     
     lazy var name: String = {
         let fullName = "\(self.firstName!) \(self.surname!)"
@@ -24,11 +22,13 @@ class Golfer: NSManagedObject {
     class func golferWithFirstName(first: String, andSurname surname:String, playerIdentifier identifier: String, inManagedObjectContext context: NSManagedObjectContext) -> Golfer {
         
         // Gets Entity from Core Data
-        let golferEntity = NSEntityDescription.entityForName("Golfer", inManagedObjectContext: context)
+//        let golferEntity = NSEntityDescription.entityForName("Golfer", inManagedObjectContext: context)
         
         var matches: Array<AnyObject>?
         
-        var golfer = Golfer(entity: golferEntity!, insertIntoManagedObjectContext: context)
+//        var golfer = Golfer(entity: golferEntity!, insertIntoManagedObjectContext: context)
+        
+        var golfer: Golfer? = nil
         
 //        let newGolfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context)
         
@@ -40,7 +40,7 @@ class Golfer: NSManagedObject {
         
         
        do {
-        matches = try context.executeFetchRequest(request) //as! Golfer
+        matches = try context.executeFetchRequest(request) as! Array<Golfer>
        } catch {
             print("Ooops Fetch Request Failed: \(error)")
             abort()
@@ -54,43 +54,38 @@ class Golfer: NSManagedObject {
             // Handle error
             print("Matches = NIL or Matches Count > 1") }
         else if (matches!.count == 1){
-            golfer = (matches?.last)! as! Golfer
-            //print("Matches Count = 1")
+            golfer = (matches?.last)! as? Golfer
+            
+            print("Matches Count = 1")
+            
         } else if (matches?.count == 0){
-            golfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context) as! Golfer
-            golfer.firstName = first
-            golfer.surname = surname
-            golfer.identifier = identifier
-            //print("Matches Count = 0")
+            golfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context) as? Golfer
+            golfer!.firstName = first
+            golfer!.surname = surname
+            golfer!.identifier = identifier
             
+            print("Matches Count = 0\ngolferId: \(golfer!.objectID)")
             
+        }
+        
+        //Instantiate the "name" lazy var
+        
+        _ = golfer!.name
+        
+        
 
-            super
-            
-            
+//        print("------ G O L F E R ------\n\(golfer.firstName!) \(golfer.surname!) \(golfer.identifier!) \(golfer.name)")
         
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Core Data Error \()")
+//            abort()
+//        }
         
-        
-        return golfer
+        return golfer!
     }
-    
-    
-//    func tester() {
-//    
-//        self.golferWithFirstName("Keith", andSurname: "Bamford", playerIdentifier: "Player A", inManagedObjectContext: self.managedObjectContext!)
-//        golferWithFirstName("Alan", andSurname: "Bromley", playerIdentifier: "Player B", inManagedObjectContext: self.managedObjectContext!)
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     
     

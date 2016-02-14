@@ -23,6 +23,13 @@
 		30F60C4A1C4F02C900203FCC /* Golfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C461C4F02C900203FCC /* Golfer.swift */; };
 		30F60C4B1C4F02C900203FCC /* DayRound+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C471C4F02C900203FCC /* DayRound+CoreDataProperties.swift */; };
 		30F60C4C1C4F02C900203FCC /* DayRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F60C481C4F02C900203FCC /* DayRound.swift */; };
+		30F8198A1C6ACE1700DA990F /* valDaLobo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F819891C6ACE1700DA990F /* valDaLobo.jpg */; };
+		30F8198C1C6ACE9900DA990F /* SalgadosGC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F8198B1C6ACE9900DA990F /* SalgadosGC.jpg */; };
+		30F8198E1C6ACF6B00DA990F /* ValeDoLoboGC3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 30F8198D1C6ACF6B00DA990F /* ValeDoLoboGC3.gif */; };
+		30F819901C6AD0E000DA990F /* Pinhal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F8198F1C6AD0E000DA990F /* Pinhal.jpg */; };
+		30F819921C6AD3A600DA990F /* millenniumGC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F819911C6AD3A600DA990F /* millenniumGC.jpg */; };
+		30F819941C6D4A0900DA990F /* ocean.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F819931C6D4A0900DA990F /* ocean.jpg */; };
+		30F819981C6D4B5E00DA990F /* ocean2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30F819971C6D4B5E00DA990F /* ocean2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +51,13 @@
 		30F60C461C4F02C900203FCC /* Golfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Golfer.swift; sourceTree = "<group>"; };
 		30F60C471C4F02C900203FCC /* DayRound+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DayRound+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30F60C481C4F02C900203FCC /* DayRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRound.swift; sourceTree = "<group>"; };
+		30F819891C6ACE1700DA990F /* valDaLobo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = valDaLobo.jpg; sourceTree = "<group>"; };
+		30F8198B1C6ACE9900DA990F /* SalgadosGC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SalgadosGC.jpg; sourceTree = "<group>"; };
+		30F8198D1C6ACF6B00DA990F /* ValeDoLoboGC3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ValeDoLoboGC3.gif; sourceTree = "<group>"; };
+		30F8198F1C6AD0E000DA990F /* Pinhal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pinhal.jpg; sourceTree = "<group>"; };
+		30F819911C6AD3A600DA990F /* millenniumGC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = millenniumGC.jpg; sourceTree = "<group>"; };
+		30F819931C6D4A0900DA990F /* ocean.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocean.jpg; sourceTree = "<group>"; };
+		30F819971C6D4B5E00DA990F /* ocean2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocean2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +74,8 @@
 		3060FE661C52B03D005F7C1B /* Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				30F60C451C4F02C900203FCC /* Golfer+CoreDataProperties.swift */,
 				3060FE671C62A3F7005F7C1B /* CoreDataStack.swift */,
+				30F60C451C4F02C900203FCC /* Golfer+CoreDataProperties.swift */,
 				30F60C461C4F02C900203FCC /* Golfer.swift */,
 				30F60C471C4F02C900203FCC /* DayRound+CoreDataProperties.swift */,
 				30F60C481C4F02C900203FCC /* DayRound.swift */,
@@ -76,6 +90,13 @@
 				30F60C271C4D6EEB00203FCC /* tourKeeprMatchSelector */,
 				30F60C261C4D6EEB00203FCC /* Products */,
 				30F60C411C4DC58A00203FCC /* royalGCLarge.jpg */,
+				30F819891C6ACE1700DA990F /* valDaLobo.jpg */,
+				30F8198B1C6ACE9900DA990F /* SalgadosGC.jpg */,
+				30F8198D1C6ACF6B00DA990F /* ValeDoLoboGC3.gif */,
+				30F8198F1C6AD0E000DA990F /* Pinhal.jpg */,
+				30F819911C6AD3A600DA990F /* millenniumGC.jpg */,
+				30F819931C6D4A0900DA990F /* ocean.jpg */,
+				30F819971C6D4B5E00DA990F /* ocean2.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,10 +186,17 @@
 			files = (
 				30F60C381C4D6EEB00203FCC /* LaunchScreen.storyboard in Resources */,
 				3060FE6C1C62DADB005F7C1B /* golfSchedule.txt in Resources */,
+				30F8198A1C6ACE1700DA990F /* valDaLobo.jpg in Resources */,
+				30F819901C6AD0E000DA990F /* Pinhal.jpg in Resources */,
 				30F60C351C4D6EEB00203FCC /* Assets.xcassets in Resources */,
 				30F60C331C4D6EEB00203FCC /* Main.storyboard in Resources */,
+				30F8198C1C6ACE9900DA990F /* SalgadosGC.jpg in Resources */,
+				30F819921C6AD3A600DA990F /* millenniumGC.jpg in Resources */,
+				30F8198E1C6ACF6B00DA990F /* ValeDoLoboGC3.gif in Resources */,
 				3060FE6A1C62D990005F7C1B /* golfSchedule.xml in Resources */,
+				30F819941C6D4A0900DA990F /* ocean.jpg in Resources */,
 				30F60C421C4DC58A00203FCC /* royalGCLarge.jpg in Resources */,
+				30F819981C6D4B5E00DA990F /* ocean2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

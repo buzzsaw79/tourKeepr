@@ -12,7 +12,19 @@ import CoreData
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var detailViewController: DetailViewController?
-    var managedObjectContext: NSManagedObjectContext?
+    var managedObjectContext = (UIApplication.sharedApplication().delegate
+        as! AppDelegate).CDS.managedObjectContext
+    
+    
+    
+//    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+
+
+    let MOC = UIApplication.sharedApplication().delegate
+    
+    
+    let days = (UIApplication.sharedApplication().delegate
+        as! AppDelegate).CDS.createDayRounds()
 
 
     override func viewDidLoad() {
@@ -42,9 +54,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //        let teeTimeDay5 = dateMaker(2016, month: 05, day: 14, hour: 10, minute: 20)
 
 
-
-
         
+
+        print("***** days MVC *****\n \(days)")
         
         //print(teeTimeDay1.dateString!)
         //print(teeTimeDay2.dateString!)
@@ -74,27 +86,27 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
 
     
-    func insertNewRound(dayNo: Int, course: String, teeTime: (NSDate?,String?)) {
-        
-        let newRound = NSEntityDescription.insertNewObjectForEntityForName("DayRound", inManagedObjectContext: self.fetchedResultsController.managedObjectContext)
-        
-        
-        // Initialise properties
-        newRound.setValue(NSNumber(integer: dayNo), forKey: "dayNumberIdentifier")
-        newRound.setValue(course, forKey: "course")
-        newRound.setValue(teeTime.0!, forKey: "teeTime")
-        newRound.setValue(teeTime.1!, forKey: "teeTimeString")
-        newRound.setValue(NSDate(), forKey: "timeStamp")
-        
-        do {
-            try self.fetchedResultsController.managedObjectContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error)")
-            abort()
-        }
-    }
+//    func insertNewRound(dayNo: Int, course: String, teeTime: (NSDate?,String?)) {
+//        
+//        let newRound = NSEntityDescription.insertNewObjectForEntityForName("DayRound", inManagedObjectContext: self.fetchedResultsController.managedObjectContext)
+//        
+//        
+//        // Initialise properties
+//        newRound.setValue(NSNumber(integer: dayNo), forKey: "dayNumberIdentifier")
+//        newRound.setValue(course, forKey: "course")
+//        newRound.setValue(teeTime.0!, forKey: "teeTime")
+//        newRound.setValue(teeTime.1!, forKey: "teeTimeString")
+//        newRound.setValue(NSDate(), forKey: "timeStamp")
+//        
+//        do {
+//            try self.fetchedResultsController.managedObjectContext.save()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            //print("Unresolved error \(error)")
+//            abort()
+//        }
+//    }
     
     
     
@@ -122,18 +134,47 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DayRound
+            let object = self.days[indexPath.row]
                 let navController = segue.destinationViewController as! UINavigationController
                 
                 let controller = navController.topViewController as! DetailViewController
-                controller.managedObjectContext = self.managedObjectContext
+//                controller.managedObjectContext = self.managedObjectContext
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 
                 object.avgScore([12,23,21,45])
                 
-                controller.dayRound = object
+                controller.view.backgroundColor = UIColor.whiteColor()
+                
+                switch Int(object.dayNumberIdentifier!) {
+                case 1:
+                    
+                    controller.bckGroundImageView.image = UIImage(named: "SalgadosGC.jpg")
+                    controller.dayRound?.dayNumberIdentifier = object.dayNumberIdentifier
+                case 2:
+//                    controller.view.backgroundColor = UIColor.blueColor()
+                    controller.bckGroundImageView.image = UIImage(named: "ocean2.jpg")
+                    controller.dayRound = object
+                case 3:
+//                    controller.view.backgroundColor = UIColor.greenColor()
+                    controller.bckGroundImageView.image = UIImage(named: "Pinhal.jpg")
+                    controller.dayRound = object
+                case 4:
+//                    controller.view.backgroundColor = UIColor.yellowColor()
+                    controller.bckGroundImageView.image = UIImage(named: "millenniumGC.jpg")
+                    controller.dayRound = object
+                case 5:
+//                    controller.view.backgroundColor = UIColor.brownColor()
+                    controller.bckGroundImageView.image = UIImage(named: "valDaLobo.jpg")
+                    controller.dayRound = object
+                    
+                default:
+                    break;
+                }
+                
+                
                 //print(object.course)
+                
                 
                 
             }
@@ -147,8 +188,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+//        let sectionInfo = self.fetchedResultsController.sections![section]
+//        return sectionInfo.numberOfObjects
+        return days.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -164,7 +206,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let context = self.fetchedResultsController.managedObjectContext
+            let context = self.managedObjectContext
             context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
                 
             do {
@@ -183,9 +225,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-        cell.textLabel!.text = object.valueForKey("course")!.description
-        cell.detailTextLabel!.text = object.valueForKey("teeTimeString")?.description ?? "Failed to get teeTimeString"
+//        let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
+//        cell.textLabel!.text = object.valueForKey("course")!.description
+//        cell.detailTextLabel!.text = object.valueForKey("teeTimeString")?.description ?? "Failed to get teeTimeString"
+        
+        cell.textLabel!.text = days[indexPath.row].course
+        cell.detailTextLabel!.text = days[indexPath.row].teeTimeString
+        
         
     }
 
@@ -198,7 +244,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("DayRound", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("DayRound", inManagedObjectContext: self.managedObjectContext)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
@@ -211,7 +257,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         
@@ -273,55 +319,55 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     //MARK: -
     //MARK: Helper Functions etc
     
-    private let userCalendar = NSCalendar.currentCalendar()
-    
-    func dateMaker(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> (date:NSDate?,dateString:String?) {
-        
-       var dayName = ""
-        let dateComps = NSDateComponents()
-        
-        dateComps.calendar = userCalendar
-        dateComps.year = year
-        dateComps.month = month
-        dateComps.day = day
-        dateComps.hour = hour
-        dateComps.minute = minute ?? 0
-        
-        let theDate = userCalendar.dateFromComponents(dateComps)
-        
-        let dayNo = userCalendar.components(.Weekday, fromDate: theDate!)
-        
-        
-        
-        switch (dayNo.weekday) {
-        case 1: dayName = "Sunday"
-        case 2: dayName = "Monday"
-        case 3: dayName = "Tuesday"
-        case 4: dayName = "Wednesday"
-        case 5: dayName = "Thursday"
-        case 6: dayName = "Friday"
-        case 7: dayName = "Saturday"
-        default: dayName = "Something went very wrong"
-        }
-        
-        var minString: String = ""
-        
-        // Add preceding 0 if minute is less than 10
-        if minute < 10 {
-            minString = "0\(minute)"
-        } else {
-            minString = String(minute)
-        }
-
-        
-        let monString = userCalendar.monthSymbols[month-1]
-        let dateString: String = "\(dayName) \(day)th \(monString) - \(hour):\(minString)pm"
-        
-        return (theDate,dateString)
-        
-        
-        
-    }
+//    private let userCalendar = NSCalendar.currentCalendar()
+//    
+//    func dateMaker(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> (date:NSDate?,dateString:String?) {
+//        
+//       var dayName = ""
+//        let dateComps = NSDateComponents()
+//        
+//        dateComps.calendar = userCalendar
+//        dateComps.year = year
+//        dateComps.month = month
+//        dateComps.day = day
+//        dateComps.hour = hour
+//        dateComps.minute = minute ?? 0
+//        
+//        let theDate = userCalendar.dateFromComponents(dateComps)
+//        
+//        let dayNo = userCalendar.components(.Weekday, fromDate: theDate!)
+//        
+//        
+//        
+//        switch (dayNo.weekday) {
+//        case 1: dayName = "Sunday"
+//        case 2: dayName = "Monday"
+//        case 3: dayName = "Tuesday"
+//        case 4: dayName = "Wednesday"
+//        case 5: dayName = "Thursday"
+//        case 6: dayName = "Friday"
+//        case 7: dayName = "Saturday"
+//        default: dayName = "Something went very wrong"
+//        }
+//        
+//        var minString: String = ""
+//        
+//        // Add preceding 0 if minute is less than 10
+//        if minute < 10 {
+//            minString = "0\(minute)"
+//        } else {
+//            minString = String(minute)
+//        }
+//
+//        
+//        let monString = userCalendar.monthSymbols[month-1]
+//        let dateString: String = "\(dayName) \(day)th \(monString) - \(hour):\(minString)pm"
+//        
+//        return (theDate,dateString)
+//        
+//        
+//        
+//    }
 
 }
 
