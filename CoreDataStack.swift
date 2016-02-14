@@ -123,7 +123,7 @@ class CoreDataStack {
         gary.winnings = NSNumber(integer: 0)
         gary.currentScore = 0
         gary.currentTourHandicap = gary.clubHandicap
-        //    gary?.playsIn = self.dayRound
+//            gary.playsIn = self.dayRound
         
         //print("Gary inserted")
         

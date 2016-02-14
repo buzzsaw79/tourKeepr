@@ -17,10 +17,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
-//    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+    let MOC = (UIApplication.sharedApplication().delegate as! AppDelegate).CDS.managedObjectContext
 
 
-    let MOC = UIApplication.sharedApplication().delegate
+//    let MOC = UIApplication.sharedApplication().delegate
     
     
     let days = (UIApplication.sharedApplication().delegate
@@ -56,7 +56,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         
 
-        print("***** days MVC *****\n \(days)")
+        print("\n***** MVC days Array *****\n \(days)")
         
         //print(teeTimeDay1.dateString!)
         //print(teeTimeDay2.dateString!)
@@ -134,7 +134,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.days[indexPath.row]
+            let day = self.days[indexPath.row]
                 let navController = segue.destinationViewController as! UINavigationController
                 
                 let controller = navController.topViewController as! DetailViewController
@@ -142,40 +142,29 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 
-                object.avgScore([12,23,21,45])
+                controller.dayRound = day
+                
+                
+                
+                print(day.avgScore([12,23,21,45]))
                 
                 controller.view.backgroundColor = UIColor.whiteColor()
                 
-                switch Int(object.dayNumberIdentifier!) {
+                switch Int(day.dayNumberIdentifier!) {
                 case 1:
-                    
                     controller.bckGroundImageView.image = UIImage(named: "SalgadosGC.jpg")
-                    controller.dayRound?.dayNumberIdentifier = object.dayNumberIdentifier
                 case 2:
-//                    controller.view.backgroundColor = UIColor.blueColor()
                     controller.bckGroundImageView.image = UIImage(named: "ocean2.jpg")
-                    controller.dayRound = object
                 case 3:
-//                    controller.view.backgroundColor = UIColor.greenColor()
                     controller.bckGroundImageView.image = UIImage(named: "Pinhal.jpg")
-                    controller.dayRound = object
                 case 4:
-//                    controller.view.backgroundColor = UIColor.yellowColor()
                     controller.bckGroundImageView.image = UIImage(named: "millenniumGC.jpg")
-                    controller.dayRound = object
                 case 5:
-//                    controller.view.backgroundColor = UIColor.brownColor()
                     controller.bckGroundImageView.image = UIImage(named: "valDaLobo.jpg")
-                    controller.dayRound = object
-                    
                 default:
+                    print("MVC->DVC dayRound object not set")
                     break;
                 }
-                
-                
-                //print(object.course)
-                
-                
                 
             }
         }
