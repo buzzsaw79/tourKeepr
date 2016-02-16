@@ -56,7 +56,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         
 
-        print("\n***** MVC days Array *****\n \(days)")
+//        print("\n***** MVC days Array *****\n \(days)")
         
         //print(teeTimeDay1.dateString!)
         //print(teeTimeDay2.dateString!)

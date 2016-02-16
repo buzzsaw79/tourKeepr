@@ -13,7 +13,7 @@ import CoreData
 class Golfer: NSManagedObject {
     
     lazy var name: String = {
-        let fullName = "\(self.firstName!) \(self.surname!)"
+        let fullName = "\(self.firstName) \(self.surname)"
         return fullName
     }()
     
@@ -56,7 +56,7 @@ class Golfer: NSManagedObject {
         else if (matches!.count == 1){
             golfer = (matches?.last)! as? Golfer
             
-            print("Matches Count = 1")
+//            print("Matches Count = 1")
             
         } else if (matches?.count == 0){
             golfer = NSEntityDescription.insertNewObjectForEntityForName("Golfer", inManagedObjectContext: context) as? Golfer

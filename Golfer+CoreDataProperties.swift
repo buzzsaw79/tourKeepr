@@ -15,12 +15,12 @@ import CoreData
 extension Golfer {
 
     // Name and Identifier
-    @NSManaged var firstName: String?
-    @NSManaged var surname: String?
-    @NSManaged var identifier: String?
+    @NSManaged var firstName: String
+    @NSManaged var surname: String
+    @NSManaged var identifier: String
     
     // Handicap setting
-    @NSManaged var clubHandicap: NSNumber?
+    @NSManaged var clubHandicap: NSNumber
     @NSManaged var currentTourHandicap: NSNumber?
     
     // Scores

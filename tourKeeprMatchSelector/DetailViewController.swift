@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     
     var dayRound: DayRound?
     
-    
+    private var golferIdDict = [String:String]()
     
     let players = ["Keith Bamford", "Alan Bromley", "Bernard Bull", "Graham Clarke", "Mick Clarke", "Gary Davies", "Mario De Abreu", "Graham Hill", "Jeff Mabbitt", "Nigel Maqueline","Andrew Mogridge", "Liam Rees", "Jimmy Sweeney", "John Sweeney","David Wilson", "Craig Wilson"]
     
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.detailViewTitleBar.title = "Holidays"
-        print("DVC AwakeFromNib\n===entrants===\(entrants)")
+//        print("DVC AwakeFromNib\n===entrants===\(entrants)")
             }
     
 
@@ -55,28 +55,36 @@ class DetailViewController: UIViewController {
 //        self.dayRound?.golfers = NSSet.init(array: self.entrants)
         
         if ((self.dayRound?.dayNumberIdentifier) == nil) {
-            print("\n\n====== S A L G A D O S =======\n\n")
+            self.detailViewTitleBar.title = "====== P O R T U G A L ======="
         }
         
-        let matchesDay2 = [["A","G","J","N"],["D","H","I","O"],["C","F","K","M"],["B","E","L","P"]]
-        let playingOrderDay2 = ["A","G","J","N","D","H","I","O","C","F","K","M","B","E","L","P"]
+//        let matchesDay2 = [["A","G","J","N"],["D","H","I","O"],["C","F","K","M"],["B","E","L","P"]]
+//        let playingOrderDay1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
+//        let playingOrderDay2 = ["A","G","J","N","D","H","I","O","C","F","K","M","B","E","L","P"]
         
-        for (index, entrant) in self.entrants.enumerate() {
+//        for (index, entrant) in self.entrants.enumerate() {
+        
             
-            let id = entrant.identifier
             
-            if id == playingOrderDay2[index] {
-                
-            }
+//            golferIdDict.updateValue(entrant.name, forKey: playingOrderDay1[index])
+//            golferIdDict.updateValue(entrant.name, forKey: entrant.identifier)
             
-            let tagView = self.view.viewWithTag(index+1) as! UIButton
+//            if id == playingOrderDay2[index] {
+//                print(golferIdDict)
+//            }
             
-            tagView.setTitle(entrant.name, forState: .Normal)
-            tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
+//            let tagView = self.view.viewWithTag(index+1) as! UIButton
+//
+//            let butName = golferIdDict[playingOrderDay2[index]]
+//            
+//            tagView.setTitle(entrant.identifier, forState: .Normal)
+//            tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
 
             
-        }
+//        }
+//        print("\n\ngolferIdDict: \(golferIdDict)")
         
+        updateUI()
         
     }
     
@@ -109,20 +117,10 @@ class DetailViewController: UIViewController {
                             [0,4,8,12,3,5,9,15,2,7,11,13,1,6,10,14],
                             [0,5,11,14,2,6,8,15,3,4,10,13,1,7,9,12],
                             [0,7,10,15,2,4,9,14,3,6,11,12,1,5,8,13]]
-        
-        
-//        for numbers in playingInts {
-//            for (index, num) in numbers.enumerate() {
-//                print("Number:\(num) Index:\(index)")
-//            }
-//        }
-        
-        
-//        print(playingInts)
+
         
         
         let matchesDay1 = [["A","B","C","D"],["E","F","G","H"],["I","J","K","L"],["M","N","O","P"]]
-        
         let matchesDay2 = [["A","G","J","N"],["D","H","I","O"],["C","F","K","M"],["B","E","L","P"]]
         let matchesDay3 = [["A","E","I","M"],["D","F","J","P"],["C","H","L","N"],["B","G","K","O"]]
         let matchesDay4 = [["A","F","L","O"],["C","G","I","P"],["D","E","K","N"],["B","H","J","M"]]
@@ -137,25 +135,12 @@ class DetailViewController: UIViewController {
         let day4PlayingOrder = ["A","F","L","O","C","G","I","P","D","E","K","N","B","H","J","M"]
         
         
-        for (index,match) in matchesDay2.enumerate() {
-            
-            for id in match {
-                
-                print(id )
-            }
-            
-            
-            
-            print("Group1: \(match) Day1PlayingOrder: \(day1PlayingOrder)")
-        }
         
         
-        
-        
-        let day1Dict = NSDictionary(objects: players, forKeys: day1PlayingOrder) ;         print("Day1 Dictionary = \(day1Dict)")
-        let day2Dict = NSDictionary(objects: players, forKeys: day2PlayingOrder)  ;    print("Day2 Dictionary = \(day2Dict)")
-        let day3Dict = NSDictionary(objects: players, forKeys: day3PlayingOrder)   ; print("Day3 Dictionary = \(day3Dict)")
-        let day4Dict = NSDictionary(objects: players, forKeys: day4PlayingOrder)    ; print("Day4 Dictionary = \(day4Dict)")
+        let day1Dict = NSDictionary(objects: entrants, forKeys: day1PlayingOrder) ;         print("Day1 Dictionary = \(day1Dict)")
+        let day2Dict = NSDictionary(objects: players, forKeys: day2PlayingOrder)  ;   // print("Day2 Dictionary = \(day2Dict)")
+        let day3Dict = NSDictionary(objects: players, forKeys: day3PlayingOrder)   ; //print("Day3 Dictionary = \(day3Dict)")
+        let day4Dict = NSDictionary(objects: players, forKeys: day4PlayingOrder)    ;// print("Day4 Dictionary = \(day4Dict)")
         
         
 //        day2Dict.
@@ -181,10 +166,57 @@ class DetailViewController: UIViewController {
     
     func updateUI() {
         
+        let playingOrderDay1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
+        let playingOrderDay2 = ["A","G","J","N","D","H","I","O","C","F","K","M","B","E","L","P"]
+        let playingOrderDay3 = ["A","E","I","M","D","F","J","P","C","H","L","N","B","G","K","O"]
+        let playingOrderDay4 = ["A","F","L","O","C","G","I","P","D","E","K","N","B","H","J","M"]
+        
+        // Populate the golferIdDict
         for entrant in entrants {
-            let id = entrant.identifier
+            golferIdDict.updateValue(entrant.name, forKey: entrant.identifier)
         }
         
+        
+        
+        //        for entrant in entrants {
+        //            let id = entrant.identifier
+        //        }
+        
+        var playingOrder = playingOrderDay1
+        
+        if let dayNo = self.dayRound?.dayNumberIdentifier {
+            
+            switch (dayNo) as Int {
+            case 1:
+                playingOrder = playingOrderDay1
+            case 2:
+                playingOrder = playingOrderDay2
+            case 3:
+                playingOrder = playingOrderDay3
+            case 4:
+                playingOrder = playingOrderDay4
+            case 5:
+                playingOrder = playingOrderDay1
+            default:
+                break;
+            }
+        }
+        
+        // Update the Golfer buttons
+        for (index, _) in self.entrants.enumerate() {
+            
+            let tagView = self.view.viewWithTag(index+1) as! UIButton
+            var butName:String?
+            if self.dayRound != nil {
+                butName = golferIdDict[playingOrder[index]]
+            } else {
+                butName = "Player \(playingOrder[index])"
+            }
+            tagView.setTitle(butName, forState: .Normal)
+            tagView.titleLabel?.font = UIFont(name: "GeezaPro-Bold", size: CGFloat(22))
+            
+            
+        }
         
         
     }

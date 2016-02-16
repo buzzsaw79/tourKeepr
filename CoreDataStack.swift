@@ -57,7 +57,7 @@ class CoreDataStack {
             //print("Unresolved error \(error)")
             abort()
         }
-        print(newDayRound)
+//        print(newDayRound)
         return newDayRound as! DayRound
     }
     
@@ -236,8 +236,6 @@ class CoreDataStack {
         craig.currentScore = 0
         craig.currentTourHandicap = craig.clubHandicap
         //    craig.playsIn = self.dayRound
-        
-        print("Craig \(craig)")
         
         
         self.saveContext()
